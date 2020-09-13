@@ -1,0 +1,107 @@
+</<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  color: white;
+}
+
+.split1 {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+.split2 {
+  height: 100%;
+  width: 80%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+}
+
+.left {
+  left: 0;
+  background-color: #056676;
+}
+
+.right {
+  right: 0;
+  background-color: #eeeeee;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.container {
+  padding-left: 40px
+}
+
+.textContainer {
+  padding : 5px
+}
+
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+.textHead {
+  color: #204051;
+}
+
+.btn {
+  border: 2px solid black;
+  background-color: transparent;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.success {
+  border-color: #056676;
+  color: #056676;
+}
+
+.success:hover {
+  background-color: #056676;
+  color: white;
+}
+
+
+</style>
+  </head>
+  <body style="background-color:white">
+    <div class="split1 left">
+      <div class="container">
+        <!-- <img src="img_avatar2.png" alt="Avatar woman"> -->
+        <h2>Quick Links</h2>
+        <p class="textContainer">Profile</p>
+        <p class="textContainer">Projects</p>
+        <p class="textContainer">Experiences</p>
+        <p class="textContainer">Contacts</p>
+
+      </div>
+    </div>
+
+    <div class="split2 right">
+      <div class="centered">
+        <img src="001-man.png" alt="Avatar man">
+        <h2 class="textHead">Anuj Kumar</h2>
+        <button class="btn success">Explore my profile</button>
+      </div>
+    </div>
+  </body>
+</html>
