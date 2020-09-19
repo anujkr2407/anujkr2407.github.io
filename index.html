@@ -69,6 +69,10 @@ body {
   justify-content: center
 }
 
+.gridContainer{
+  display: grid;
+}
+
 .centered img {
   width: 150px;
   border-radius: 50%;
@@ -106,12 +110,12 @@ body {
 }
 
 .navigation_icon{
-        width: 30px;
-        height: 30px;
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-        margin-top: 20px
+  width: 30px;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 20px
 }
 
 img {
@@ -146,15 +150,41 @@ img {
 
 }
 
+.DivBox{
+  width: auto;
+  border: 1px solid #66bfbf;
+  padding:10px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+
+}
+
+.DivBoxContainer{
+  float:left;
+  width: 50%
+}
+
+
 @font-face {
-    font-family: "roboto-bold";
+    font-family: "roboto-black";
     src: url("roboto/Roboto-Black.ttf");
 }
 
 .headText {
   font-size: 45px;
   color: #ECF0F1;
-  font-family: roboto-bold;
+  font-family: roboto-black;
+}
+
+@font-face {
+    font-family: "roboto-regular";
+    src: url("roboto/Roboto-Regular.ttf");
+}
+
+.SecondheadText {
+  font-size: 15px;
+  color: #ECF0F1;
+  font-family: roboto-regular;
 }
 
 @font-face {
@@ -168,36 +198,222 @@ img {
   font-family: roboto-light;
 }
 
-/* #ECF0F1 */
-/*66bfbf*/
+.highlightText {
+  font-size: 18px;
+  color :#66bfbf;
+  font-family: roboto-regular;
+}
+
+.highlightText1 {
+  font-size: 22px;
+  color :#66bfbf;
+  font-family: roboto-regular;
+}
 
 hr { background-color: #66bfbf; height: 1px; border: 0; }
+
+input {
+ outline:none;
+}
+button {
+ outline:none;
+}
 
 </style>
   </head>
   <body style="background-color: #1d1e20">
     <div class="Division1">
-        <!-- <img src="img_avatar2.png" alt="Avatar woman"> -->
-          <img src="icons/profile.png" class="navigation_icon" onmouseover="this.src='icons/profile.png'" onmouseout="this.src='icons/profile.png'">
-          <img src="icons/project_2.png" class="navigation_icon" onmouseover="this.src='icons/project_1.png'" onmouseout="this.src='icons/project_2.png'">
-          <img src="icons/experience_2.png" class="navigation_icon" onmouseover="this.src='icons/experience_1.png'" onmouseout="this.src='icons/experience_2.png'">
-
-          <img src="icons/contact_2.png" class="navigation_icon" onmouseover="this.src='icons/contact_1.png'" onmouseout="this.src='icons/contact_2.png'">
-
-
+      <input id = "profile" type="image" src="icons/profile_1.png" class="navigation_icon" onmouseover="this.src='icons/profile_1.png'" onmouseout="this.src='icons/profile_1.png'" onclick="changeDiv('profileDiv')">
+      <input id = "education" type="image" src="icons/education_2.png" class="navigation_icon" onmouseover="this.src='icons/education_1.png'" onmouseout="this.src='icons/education_2.png'" onclick="changeDiv('educationDiv')">
+      <input id = "experience" type="image" src="icons/experience_2.png" class="navigation_icon" onmouseover="this.src='icons/experience_1.png'" onmouseout="this.src='icons/experience_2.png'" onclick="changeDiv('experienceDiv')">
+      <input id = "project" type="image" src="icons/project_2.png" class="navigation_icon" onmouseover="this.src='icons/project_1.png'" onmouseout="this.src='icons/project_2.png'" onclick="changeDiv('projectDiv')">
+      <input id = "contact" type="image" src="icons/contact_2.png" class="navigation_icon" onmouseover="this.src='icons/contact_1.png'" onmouseout="this.src='icons/contact_2.png'" onclick="changeDiv('contactDiv')">
     </div>
 
       <!-- <div class="container"> -->
-      <div class="Division2">
-
-        <img src="new_b.png" class="center-cropped ">
-</div>
-
-    <div class="Division3">
-        <h1 class="headText"> About me <h1>
-        <hr align=left width=40%>
-        <p class="paraghText">Working as a software engineer at Magicpin. Experienced android developer with a demonstrated history of working in the consumer services industry. Skilled in C++, Data Structures, Java, C (Programming Language), and Android Development. Strong business development professional with a Bachelor of Engineering - BE focused in Information Technology from Netaji Subhas Institute of Technology. </p>
-        <button class="btn success">Explore my profile</button>
+    <div class="Division2">
+      <img src="new_b.png" class="center-cropped ">
     </div>
+
+    <div id="profile_div" class="Division3">
+      <h1 class="headText"> Hi, I'm Anuj <h1>
+      <hr align=left width=40%>
+      <p class="paraghText">Working as a software engineer at Magicpin. Experienced android developer with a demonstrated history of working in the consumer services industry. Skilled in C++, Data Structures, Java, C (Programming Language), and Android Development. Strong business development professional with a Bachelor of Engineering - BE focused in Information Technology from Netaji Subhas Institute of Technology. </p>
+      <!-- <button class="btn success">Explore my profile</button> -->
+      <!-- <h1 class="highlightText1" style="padding-top:20px">Languages</h1> -->
+    </div>
+
+    <div id="education_div" class="Division3" style="display:none">
+      <h1 class="headText"> Education <h1>
+      <hr align=left width=40%>
+
+      <h1 class="highlightText" style="padding-top:10px">NSIT (Netaji Subhas Institute of Technology)</h1>
+      <h1 class="paraghText">2019</h1>
+      <h1 class="paraghText">B.E. in Information Technology</h1>
+      <h1 class="paraghText">Aggregate: 80.9 %</h1>
+
+      <h1 class="highlightText" style="padding-top:50px">St. Teresa School</h1>
+      <h1 class="paraghText">2015</h1>
+      <h1 class="paraghText">Class XII | CBSE</h1>
+      <h1 class="paraghText">Percentage: 96.4 %</h1>
+
+      <h1 class="highlightText" style="padding-top:50px">Modern Academy School</h1>
+      <h1 class="paraghText">2013</h1>
+      <h1 class="paraghText">Class X | ICSE</h1>
+      <h1 class="paraghText">Percentage: 86.4 %</h1>
+
+    </div>
+
+    <div id="project_div" class="Division3" style="display:none">
+      <h1 class="headText"> Projects <h1>
+      <hr align=left width=40%>
+
+      <h1 class="highlightText" style="padding-top:10px">Diabetic Retinopathy classification</h1>
+      <h1 class="paraghText">Developed a RCNN (Residual CNN) model and trained it for 5 class classification using preprocessed images from kaggle. Preprocessing was used to remove inconsistency caused due to the lighting on the images and make vessels more visible.</h1>
+
+      <h2 class="highlightText" style="padding-top:15px">Fake Note Detection</h2>
+      <h1 class="paraghText">Used image processing to detect a fake note. The algorithm used SURF points and KAZE descriptors combined. Image was preprocessed with methods like histogram equalization and gray scale conversion.</h1>
+
+      <h2 class="highlightText" style="padding-top:15px">Xpent App</h2>
+      <h1 class="paraghText">This app includes entering your daily expenses and it provides you with various interactive graphs for visualizing your expense on day, month and year basis.</h1>
+
+      <h2 class="highlightText" style="padding-top:15px">Chat App</h2>
+      <h1 class="paraghText">Interactive user interface with whatsapp like features .Features like last seen ,active users, status and profile picture with real time changes, video, audio and image sharing, voice input that can be converted into text.</h1>
+
+      <h2 class="highlightText" style="padding-top:15px">DrinkWater App</h2>
+      <h1 class="paraghText">Helps you to drink a glass of water every hour by making your phone vibrate on the given time .You can set non-disturbing hours like sleeping hours and the alarm will be off for these hours. You can also turn off individual alarms too.</h1>
+
+    </div>
+
+    <div id="experience_div" class="Division3" style="display:none">
+      <h1 class="headText"> Experiences <h1>
+      <hr align=left width=40%>
+
+      <h2 class="highlightText1" style="padding-top:15px">MagicPin, Gurgaon— Software Engineer</h2>
+      <h1 class="SecondheadText">JUNE 2019 - PRESENT</h1>
+      <p class="paraghText">Worked in various domains and projects as a Software Engineer. Worked towards the improvement of the existing system. Some of the technologies used were Spring, Kafka, Redis, Golang, Python.</p>
+
+      <div class="DivBoxContainer">
+        <div class="DivBox">
+          <h1 class="SecondheadText" style="padding-left:30px"> GO LANG </h1>
+          <ul>
+            <li class="paraghText">Created a backend for Order Management System for accepting orders and delivery via various third party delivery partners like rapido, delhivery, shadowfax etc.</li>
+            <li class="paraghText">Created a project in which items were extracted from the bill along with quantity, amount and other details using various algorithms. Algorithm to align words in a straight line was also written.</li>
+            <li class="paraghText">Created a backend for a bill tagging panel which included tagging of items in bills using an interface.</li>
+            <li class="paraghText">Created a middleware(hop) for brand system which was the intermediate system between app and backend.</li>
+            <li class="paraghText">Created a pipeline which included consuming messages from kafka and calling various APIs and finally producing a payload for another kafka topic.</li>
+          </ul>
+       </div>
+       <div class="DivBox">
+        <h1 class="SecondheadText" style="padding-left:30px"> ANDROID </h1>
+        <ul>
+          <li class="paraghText">Created an android app for detecting boundaries of bills in a live feed to the app using OpenCv and was able to detect bills on white background too.</li>
+          <li class="paraghText">Integrated MLKit from firebase to do OCR of the bill images clicked by users and devised an algorithm to sort the OCR.<br></li>
+        </ul>
+       </div>
+
+     </div>
+
+     <div class="DivBoxContainer">
+       <div class="DivBox">
+         <h1 class="SecondheadText" style="padding-left:30px"> SPRING </h1>
+         <ul>
+           <li class="paraghText">Created backend of unlock brand feature on app which was called via hop.</li>
+           <li class="paraghText">Created a backend of survey for the app in which the next question was dependent on the previous answer. The task involved deciding the structure of the database and creating various endpoints for the app and hop.</li>
+           <li class="paraghText">Embedded a Spring Middleware / HandlerInterceptor for intercepting api calls and send logs like running time of an api to datadog</li>
+         </ul>
+      </div>
+       <div class="DivBox">
+         <h1 class="SecondheadText" style="padding-left:30px"> PYTHON </h1>
+         <ul>
+           <li class="paraghText">Created a script used for reading logs from a file and parse it to store it in a database everyday at a certain time using crontab.</li>
+           <li class="paraghText">Created a script for sending statistics of an event via mail every morning.</li>
+         </ul>
+       </div>
+
+    </div>
+  </div>
+
+
+    <div id="contact_div" class="Division3" style="display:none">
+      <h1 class="headText"> Contact <h1>
+      <hr align=left width=40%>
+
+      <h2 class="highlightText" style="padding-top:15px">Email</h2>
+      <h1 class="paraghText">aka24.ak7@gmail.com</h1>
+
+      <h2 class="highlightText" style="padding-top:15px">Linkedln</h2>
+      <a class="paraghText" href="https://www.linkedin.com/in/anuj-kumar-746784168/">https://www.linkedin.com/in/anuj-kumar-746784168/</a>
+
+      <h2 class="highlightText" style="padding-top:15px">Mobile</h2>
+      <h1 class="paraghText">+91 8588987835</h1>
+    </div>
+
+    <script>
+    function changeDiv(divName) {
+      var profileDiv = document.getElementById("profile_div");
+      var profile = document.getElementById("profile");
+
+      var educationDiv = document.getElementById("education_div");
+      var education = document.getElementById("education");
+
+      var experienceDiv = document.getElementById("experience_div");
+      var experience = document.getElementById("experience");
+
+      var projectDiv = document.getElementById("project_div");
+      var project = document.getElementById("project");
+
+      var contactDiv = document.getElementById("contact_div");
+      var contact = document.getElementById("contact");
+
+
+      profileDiv.style.display = "none";
+      profile.src = "icons/profile_2.png";
+      profile.onmouseout = "this.src='icons/profile_2.png'";
+
+      educationDiv.style.display = "none";
+      education.src = "icons/education_2.png";
+      education.onmouseout = "this.src='icons/education_2.png'";
+
+      experienceDiv.style.display = "none";
+      experience.src = "icons/experience_2.png";
+      experience.onmouseout = "this.src='icons/experience_2.png'";
+
+      projectDiv.style.display = "none";
+      project.src = "icons/project_2.png";
+      project.onmouseout = "this.src='icons/project_2.png'";
+
+      contactDiv.style.display = "none";
+      contact.src = "icons/contact_2.png";
+      contact.onmouseout = "this.src='icons/contact_2.png'";
+      // alert(divName)
+      if (divName == "profileDiv") {
+        profileDiv.style.display = "block";
+        profile.onmouseout = "this.src='icons/profile_1.png'";
+        profile.src = "icons/profile_1.png";
+
+      } else if (divName == "educationDiv") {
+        educationDiv.style.display = "block";
+        education.onmouseout = "this.src='icons/education_1.png'";
+        education.src = "icons/education_1.png";
+
+      } else if (divName == "experienceDiv") {
+        experienceDiv.style.display = "block";
+        experience.onmouseout = "this.src='icons/experience_1.png'";
+        experience.src = "icons/experience_1.png";
+
+      } else if (divName == "projectDiv") {
+        projectDiv.style.display = "block";
+        project.onmouseout = "this.src='icons/project_1.png'";
+        project.src = "icons/project_1.png";
+
+      } else if (divName == "contactDiv") {
+        contactDiv.style.display = "block";
+        contact.onmouseout = "this.src='icons/contact_1.png'";
+        contact.src = "icons/contact_1.png";
+
+      }
+    }
+    </script>
   </body>
 </html>
