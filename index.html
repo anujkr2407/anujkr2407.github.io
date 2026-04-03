@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anuj Kumar - Tech Director & Engineering Manager with 6+ years experience in distributed systems, Golang, and platform development">
+    <meta name="keywords" content="Anuj Kumar, Software Engineer, Tech Director, Golang, System Design, Backend Developer">
+    <meta name="author" content="Anuj Kumar">
+    <title>Anuj Kumar - Tech Director & Engineering Leader</title>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#home" class="nav-logo">AK</a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#resume" class="nav-link">Resume</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="particles-container" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="greeting">Hi, I'm</span>
+                        <span class="name">Anuj Kumar</span>
+                    </h1>
+                    <p class="hero-tagline">Tech Director | Engineering Manager | System Architect</p>
+                    <p class="hero-description">
+                        Building scalable distributed systems and real-time logistics platforms with 6+ years of experience
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <span>View Projects</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="assets/resume/Anuj_Kumar_Resume.pdf" download class="btn btn-secondary">
+                            <span>Download Resume</span>
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://linkedin.com/in/anujkr2407" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/anujkr2407" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="mailto:aka24.ak7@gmail.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+918588987835" class="social-link" aria-label="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get to know me</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <div class="image-placeholder">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Tech Director & Engineering Leader</h3>
+                    <p>
+                        With over 6 years of experience in building and scaling distributed backend systems,
+                        I specialize in creating real-time logistics platforms that handle tens of thousands of orders daily.
+                        My expertise lies in Golang, system design at scale, and 0→1 platform development.
+                    </p>
+                    <p>
+                        At Magicpin, I've led the design and implementation of multiple high-impact platforms including
+                        magicFleet (fleet management), Velocity (Delivery-as-a-Service), and ONDC integrations that
+                        scaled to 70K orders/day. I'm passionate about building systems that solve real-world problems
+                        at scale while maintaining high reliability and performance.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-code"></i>
+                            <div>
+                                <h4>Specialization</h4>
+                                <p>Distributed Systems & Real-time Platforms</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h4>Achievement</h4>
+                                <p>Built platforms handling 70K+ orders/day</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <div>
+                                <h4>Education</h4>
+                                <p>B.E. in IT, NSIT (80.9%)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My expertise</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+            </div>
+            <div class="skills-content">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Golang</span>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java / Spring Boot</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C/C++</span>
+                                <span class="skill-percent">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases & Storage</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Redis</span>
+                                <span class="skill-percent">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MySQL</span>
+                                <span class="skill-percent">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">MongoDB</span>
+                                <span class="skill-percent">88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">ElasticSearch / Solr</span>
+                                <span class="skill-percent">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Frameworks</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Kafka</span>
+                        <span class="skill-badge">Kubernetes</span>
+                        <span class="skill-badge">Google Cloud Platform</span>
+                        <span class="skill-badge">BigQuery</span>
+                        <span class="skill-badge">H3 Geospatial</span>
+                        <span class="skill-badge">Beckn Protocol</span>
+                        <span class="skill-badge">Aerospike</span>
+                        <span class="skill-badge">Agentic AI</span>
+                        <span class="skill-badge">Claude AI</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-lightbulb"></i> Soft Skills</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">System Architecture</span>
+                        <span class="skill-badge">Team Leadership</span>
+                        <span class="skill-badge">Cross-functional Collaboration</span>
+                        <span class="skill-badge">0→1 Product Development</span>
+                        <span class="skill-badge">Performance Management</span>
+                        <span class="skill-badge">Technical Mentoring</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My work</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1: Agentic AI Platform -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Agentic AI Merchant Acquisition Platform</h3>
+                        <p>End-to-end AI-powered platform automating lead discovery, WhatsApp outreach, negotiation workflows, and payment conversion. Generated ₹1L/day incremental revenue within weeks.</p>
+                        <div class="project-tech">
+                            <span>Agentic AI</span>
+                            <span>Golang</span>
+                            <span>WhatsApp API</span>
+                            <span>Claude AI</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>₹1L/day revenue</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: magicFleet -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>magicFleet - Fleet Management Platform</h3>
+                        <p>Built from scratch, an in-house last-mile fleet management platform that reduced third-party logistics dependency and scaled to 20K monthly active riders.</p>
+                        <div class="project-tech">
+                            <span>Golang</span>
+                            <span>H3 Geospatial</span>
+                            <span>Redis</span>
+                            <span>Kafka</span>
+                            <span>Kubernetes</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-biking"></i>
+                                <span>20K active riders</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: ONDC-in-a-Box -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>ONDC-in-a-Box SaaS Platform</h3>
+                        <p>Multi-tenant SaaS platform enabling Paytm, Ola, and Tata Neu to launch ONDC food delivery in under one week. Drove 50% merchant order growth across integrated partners.</p>
+                        <div class="project-tech">
+                            <span>Golang</span>
+                            <span>Beckn Protocol</span>
+                            <span>Multi-tenant Architecture</span>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-chart-line"></i>
+                                <span>50% order growth</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Velocity DaaS -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Velocity - Delivery-as-a-Service Platform</h3>
+                        <p>Intelligent delivery platform handling 30K orders/day at 99.5% assignment rate for major brands including Burger King, KFC, Rebel Foods, and Shiprocket.</p>
+                        <div class="project-tech">
+                            <span>Golang</span>
+                            <span>Real-time Systems</span>
+                            <span>Redis</span>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-shipping-fast"></i>
+                                <span>30K orders/day</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-check-circle"></i>
+                                <span>99.5% assignment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: ONDC Integration -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>ONDC Full-Stack Integration</h3>
+                        <p>Architected buyer, seller, and logistics integrations from scratch, scaling to 70K orders/day with metro integration for improved user acquisition.</p>
+                        <div class="project-tech">
+                            <span>Golang</span>
+                            <span>Beckn Protocol</span>
+                            <span>Microservices</span>
+                            <span>Kafka</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-box"></i>
+                                <span>70K orders/day</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Order Management System -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" aria-label="View project">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Order Management & Rider Assignment System</h3>
+                        <p>Built core systems from scratch with real-time rider assignment using H3 geospatial framework, handling 50K orders/day across food, grocery, and fashion.</p>
+                        <div class="project-tech">
+                            <span>Golang</span>
+                            <span>H3 Framework</span>
+                            <span>Real-time Processing</span>
+                            <span>Redis</span>
+                        </div>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <i class="fas fa-utensils"></i>
+                                <span>50K orders/day</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="6">0</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="15">0</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="70">0</h3>
+                        <p>K Orders/Day Scaled</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-number" data-target="20">0</h3>
+                        <p>Technologies Mastered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Timeline Section -->
+    <section id="resume" class="resume section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My journey</span>
+                <h2 class="section-title">Experience & Education</h2>
+            </div>
+            <div class="timeline">
+                <!-- Experience -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">Dec 2024 - Present</span>
+                        <h3>Tech Director</h3>
+                        <h4>Magicpin, Gurgaon</h4>
+                        <ul>
+                            <li>Designed and launched agentic AI-powered merchant acquisition platform generating ₹1L/day revenue</li>
+                            <li>Architected magicFleet from scratch, scaling to 20K monthly active riders</li>
+                            <li>Built ONDC-in-a-Box SaaS enabling rapid ONDC deployment for Paytm, Ola, Tata Neu</li>
+                            <li>Created Velocity DaaS platform handling 30K orders/day at 99.5% assignment rate</li>
+                            <li>Led ONDC integrations scaling to 70K orders/day</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">July 2021 - Dec 2024</span>
+                        <h3>Engineering Manager / Tech Lead</h3>
+                        <h4>Magicpin, Gurgaon</h4>
+                        <ul>
+                            <li>Architected Order Management and Rider Assignment systems from scratch</li>
+                            <li>Scaled food delivery to 50K orders/day, extended to grocery and fashion verticals</li>
+                            <li>Built real-time rider assignment using H3 geospatial framework</li>
+                            <li>Led integrations with POS providers and logistics aggregators</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">June 2019 - July 2021</span>
+                        <h3>Software Engineer</h3>
+                        <h4>Magicpin, Gurgaon</h4>
+                        <ul>
+                            <li>Built core backend services for food delivery platform</li>
+                            <li>Developed scalable APIs and microservices architecture</li>
+                            <li>Implemented real-time order tracking and notification systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2015 - 2019</span>
+                        <h3>B.E. in Information Technology</h3>
+                        <h4>NSIT (Netaji Subhas Institute of Technology)</h4>
+                        <p>Aggregate: 80.9%</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2015</span>
+                        <h3>Class XII - CBSE</h3>
+                        <h4>St. Teresa School</h4>
+                        <p>Percentage: 96.4%</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">2013</span>
+                        <h3>Class X - ICSE</h3>
+                        <h4>Modern Academy School</h4>
+                        <p>Percentage: 86.4%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What others say</span>
+                <h2 class="section-title">Testimonials</h2>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>"Anuj is an exceptional tech leader who consistently delivers high-impact platforms. His work on the ONDC integration and magicFleet has transformed our operations and enabled massive scale."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Product Leader</h4>
+                            <p>Magicpin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>"Working with Anuj has been incredible. His deep understanding of distributed systems and ability to architect solutions from 0→1 is truly remarkable. The Velocity platform he built handles massive scale effortlessly."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Engineering Team Member</h4>
+                            <p>Magicpin</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p>"Anuj's technical expertise in Golang and system architecture is outstanding. He not only builds robust systems but also mentors the team effectively, fostering a strong engineering culture."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Colleague</h4>
+                            <p>Magicpin</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-nav">
+                <button class="slider-btn prev" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider-dots"></div>
+                <button class="slider-btn next" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get in touch</span>
+                <h2 class="section-title">Contact Me</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's work together</h3>
+                    <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <a href="mailto:aka24.ak7@gmail.com">aka24.ak7@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <a href="tel:+918588987835">+91 8588987835</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <a href="https://linkedin.com/in/anujkr2407" target="_blank" rel="noopener">linkedin.com/in/anujkr2407</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/anujkr2407" target="_blank" rel="noopener">github.com/anujkr2407</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    <div id="form-success" class="form-message success" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Thank you! Your message has been sent successfully.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Anuj Kumar. All rights reserved.</p>
+                    <p>Built with passion and code</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://linkedin.com/in/anujkr2407" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/anujkr2407" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:aka24.ak7@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/particles.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

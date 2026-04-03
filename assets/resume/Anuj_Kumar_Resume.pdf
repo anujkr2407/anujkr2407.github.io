@@ -1,0 +1,101 @@
+ANUJ KUMAR
+Tech Director | Engineering Manager | System Architect
+
+Contact Information:
+Phone: +91 8588987835
+Email: aka24.ak7@gmail.com
+LinkedIn: linkedin.com/in/anujkr2407
+GitHub: github.com/anujkr2407
+
+PROFESSIONAL SUMMARY
+6+ years building and scaling distributed backend systems and real-time logistics platforms
+Expert in Golang, system design at scale, and 0→1 platform development
+Proven track record driving multi-vertical product growth and large-scale API integrations
+
+EXPERIENCE
+
+MAGICPIN, Gurgaon                                                    June 2019 - Present
+
+Tech Director                                                     December 2024 - Present
+• Designed and launched an agentic AI-powered merchant acquisition platform end-to-end
+  automating lead discovery, WhatsApp outreach, negotiation workflows, and payment
+  conversion — generating ₹1L/day in incremental revenue within weeks of launch
+
+• Architected and built magicFleet from scratch, an in-house last-mile fleet management
+  platform that reduced third-party logistics dependency, improved operational control,
+  and scaled to 20K monthly active riders
+
+• Designed and shipped ONDC-in-a-Box (0→1), a multi-tenant SaaS platform enabling
+  Paytm, Ola, and Tata Neu to launch ONDC food delivery in under one week; drove 50%
+  merchant order growth across integrated partners
+
+• Architected and built Velocity, an intelligent Delivery-as-a-Service platform handling
+  30K orders/day at a 99.5% assignment rate for Burger King, KFC, Rebel Foods, Pidge,
+  and Shiprocket
+
+• Architected ONDC buyer, seller, and logistics integrations from scratch, scaling the
+  platform to 70K orders/day; extended the stack with an ONDC metro integration driving
+  measurable improvements in user acquisition and retention
+
+• Led cross-functional engineering teams across order flow, rider allocation, logistics,
+  and external integrations; owned hiring, performance management, and engineering culture
+
+Engineering Manager / Tech Lead                               July 2021 - December 2024
+• Architected and built core Order Management and Rider Assignment systems from scratch,
+  scaling food delivery to 50K orders/day and extending the platform to grocery and
+  fashion verticals
+
+• Built a real-time rider assignment and availability system using the H3 geospatial
+  framework — dynamically adjusting ETA, surge, and pricing based on supply-demand
+  signals across micro-zones
+
+• Led integrations with POS providers (UrbanPiper, Petpooja, Dotpe) and logistics
+  aggregators (Shadowfax, Dunzo, Rapido), enabling seamless multi-partner order
+  orchestration at scale
+
+EDUCATION
+
+Netaji Subhas Institute of Technology (NSIT)                                      2019
+Bachelor of Engineering in Information Technology
+Aggregate: 80.9%
+
+St. Teresa School                                                                 2015
+Class XII - CBSE
+Percentage: 96.4%
+
+Modern Academy School                                                             2013
+Class X - ICSE
+Percentage: 86.4%
+
+TECHNICAL SKILLS
+
+Programming Languages:
+• C/C++, Golang, Java, Spring/Spring Boot, Python
+
+Databases:
+• Redis, MySQL, MongoDB, Aerospike, Solr, ElasticSearch, BigQuery
+
+Tools & Technologies:
+• Kafka, BigQuery, H3 Geospatial Framework, Image Processing
+• Google Cloud Platform (GCP), Kubernetes
+• Beckn Protocol, Claude AI, Agentic AI
+
+KEY ACHIEVEMENTS
+
+• Built platforms handling 70K+ orders/day with 99.5% assignment rate
+• Scaled fleet management to 20K monthly active riders
+• Generated ₹1L/day incremental revenue through AI-powered automation
+• Led cross-functional engineering teams and owned hiring & performance management
+• Successfully architected and delivered multiple 0→1 platforms
+
+CERTIFICATIONS & INTERESTS
+
+Interests:
+• Distributed Systems Architecture
+• Real-time Data Processing
+• AI/ML Integration in Production Systems
+• Geospatial Computing
+• Platform Engineering
+
+---
+Generated from portfolio website: https://anujkr2407.github.io/
