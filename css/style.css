@@ -240,6 +240,10 @@ section.visible {
     z-index: 1;
 }
 
+section[id] {
+    scroll-margin-top: calc(var(--nav-offset, 80px) + 20px);
+}
+
 .section.active-section {
     z-index: 1;
 }
@@ -354,7 +358,8 @@ section.visible {
     transition: all var(--transition-normal);
 }
 
-.navbar.scrolled {
+.navbar.scrolled,
+.navbar.off-home {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -367,6 +372,7 @@ section.visible {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .nav-logo {
@@ -385,6 +391,25 @@ section.visible {
     transform: scale(1.05);
 }
 
+.nav-section-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color var(--transition-normal), opacity var(--transition-normal), transform var(--transition-normal);
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.navbar.off-home .nav-section-title {
+    opacity: 1;
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
@@ -398,13 +423,14 @@ section.visible {
     font-weight: 500;
     font-size: 0.95rem;
     position: relative;
-    transition: color var(--transition-normal);
+    transition: color var(--transition-normal), transform var(--transition-normal);
+    padding: 8px 0;
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 2px;
     left: 0;
     width: 0;
     height: 2px;
@@ -417,6 +443,14 @@ section.visible {
 }
 
 .nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link.active::after {
     width: 100%;
 }
 
@@ -1790,9 +1824,9 @@ section.visible {
     }
 
     .hero {
-        min-height: auto;
+        min-height: 100svh;
         padding-top: 120px;
-        padding-bottom: 80px;
+        padding-bottom: 48px;
     }
 
     .hero-description {
@@ -1873,7 +1907,7 @@ section.visible {
     }
 
     .hero {
-        align-items: flex-start;
+        align-items: center;
     }
 
     .hero-content,
@@ -1902,6 +1936,9 @@ section.visible {
 
     .hero-buttons .btn {
         justify-content: center;
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        gap: 8px;
     }
 
     .hero-social {
@@ -1974,6 +2011,14 @@ section.visible {
         font-size: 1.5rem;
     }
 
+    .nav-section-title {
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+        max-width: 36vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .name {
         font-size: 2.15rem;
     }
@@ -1983,8 +2028,10 @@ section.visible {
     }
 
     .hero {
+        min-height: 100svh;
         padding-top: 108px;
-        padding-bottom: 40px;
+        padding-bottom: 28px;
+        align-items: center;
     }
 
     .greeting {
@@ -2005,6 +2052,12 @@ section.visible {
         gap: 12px;
         justify-content: center;
         margin-bottom: 0;
+    }
+
+    .hero-buttons .btn {
+        padding: 11px 18px;
+        font-size: 0.9rem;
+        border-radius: 16px;
     }
 
     .social-link {

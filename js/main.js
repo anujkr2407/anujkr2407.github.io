@@ -41,13 +41,22 @@ function updateThemeIcon(theme) {
 // ==========================================
 
 const navbar = document.getElementById('navbar');
+const navSectionTitle = document.getElementById('nav-section-title');
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id]');
 const allSections = document.querySelectorAll('section[id]');
 const backToTop = document.getElementById('back-to-top');
-let currentSection = 0;
+let currentSection = -1;
+
+function getNavOffset() {
+    return navbar ? navbar.offsetHeight : 80;
+}
+
+function syncNavOffset() {
+    document.documentElement.style.setProperty('--nav-offset', `${getNavOffset()}px`);
+}
 
 function updateScrollUI() {
     const scrollY = window.scrollY;
@@ -58,15 +67,19 @@ function updateScrollUI() {
         navbar.classList.remove('scrolled');
     }
 
+    syncNavOffset();
+
     if (scrollY > 500) {
         backToTop.classList.add('visible');
     } else {
         backToTop.classList.remove('visible');
     }
 
+    const navOffset = getNavOffset();
+
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop - navOffset - 24;
         const sectionId = section.getAttribute('id');
         const link = document.querySelector(`.nav-link[href="#${sectionId}"]`);
 
@@ -88,6 +101,12 @@ function updateScrollUI() {
             currentSection = index;
             allSections.forEach(s => s.classList.remove('active-section'));
             section.classList.add('active-section');
+            navbar.dataset.currentSection = section.id;
+            navbar.classList.toggle('off-home', section.id !== 'home');
+            if (navSectionTitle) {
+                const sectionHeading = section.querySelector('.section-title');
+                navSectionTitle.textContent = sectionHeading ? sectionHeading.textContent.trim() : 'Home';
+            }
         }
     });
 }
@@ -116,7 +135,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(this.getAttribute('href'));
 
         if (target) {
-            const offsetTop = target.offsetTop - 80;
+            const offsetTop = target.offsetTop - getNavOffset() - 12;
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
@@ -405,12 +424,14 @@ window.addEventListener('load', () => {
     // Trigger initial animations
     document.body.classList.add('loaded');
 
+    syncNavOffset();
     updateScrollUI();
 
     console.log('Portfolio website loaded successfully! 🚀');
 });
 
 window.addEventListener('scroll', updateScrollUI, { passive: true });
+window.addEventListener('resize', syncNavOffset);
 
 // ==========================================
 // SERVICE WORKER REGISTRATION (PWA)
