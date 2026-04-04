@@ -959,13 +959,10 @@ section[id] {
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    transition: transform 0.18s ease-out, box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: transform;
-    transform: perspective(1000px) translate3d(0, 0, 0);
+    transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-card:hover {
-    transform: perspective(1000px) translate3d(0, -10px, 0) scale(1.01);
     box-shadow: 0 25px 60px var(--shadow-color);
     border-color: var(--primary-color);
 }
@@ -975,6 +972,91 @@ section[id] {
     background: var(--gradient-1);
     position: relative;
     overflow: hidden;
+}
+
+.project-image--ondc {
+    background-image:
+        linear-gradient(180deg, rgba(8, 11, 28, 0.04), rgba(8, 11, 28, 0.4)),
+        url('../assets/media/ondc-thumbnail.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.project-card--ondc {
+    position: relative;
+    perspective: 1600px;
+}
+
+.project-card-flip {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: inherit;
+    overflow: hidden;
+}
+
+.project-card-face--front {
+    position: relative;
+    background: var(--glass-bg);
+}
+
+.project-card-face--back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    background: #090d1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-play-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(13, 17, 38, 0.76);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.86rem;
+    box-shadow: 0 10px 24px rgba(6, 9, 24, 0.22);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    pointer-events: none;
+}
+
+.project-hover-video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.24s ease-out;
+}
+
+.js-hover-video-card.is-video-active .project-card-flip {
+    transform: rotateY(180deg);
+}
+
+.js-hover-video-card.is-video-active .project-hover-video {
+    opacity: 1;
+}
+
+.js-hover-video-card:hover .project-play-button {
+    transform: translateY(-2px) scale(0.96);
 }
 
 .project-overlay {

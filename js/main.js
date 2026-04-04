@@ -76,7 +76,6 @@ function updateScrollUI() {
     }
 
     const navOffset = getNavOffset();
-
     sections.forEach(section => {
         const sectionHeight = section.offsetHeight;
         const sectionTop = section.offsetTop - navOffset - 24;
@@ -243,71 +242,6 @@ if (timeline) {
 }
 
 // ==========================================
-// PROJECT CARD TILT EFFECT
-// ==========================================
-
-const projectCards = document.querySelectorAll('.project-card');
-
-projectCards.forEach(card => {
-    let rafId = null;
-    let targetRotateX = 0;
-    let targetRotateY = 0;
-    let currentRotateX = 0;
-    let currentRotateY = 0;
-    let isPointerInside = false;
-
-    const renderTilt = () => {
-        currentRotateX += (targetRotateX - currentRotateX) * 0.14;
-        currentRotateY += (targetRotateY - currentRotateY) * 0.14;
-
-        const lift = isPointerInside ? -10 : 0;
-        const scale = isPointerInside ? 1.01 : 1;
-
-        card.style.transform = `perspective(1000px) translate3d(0, ${lift}px, 0) rotateX(${currentRotateX}deg) rotateY(${currentRotateY}deg) scale(${scale})`;
-
-        if (
-            Math.abs(targetRotateX - currentRotateX) > 0.02 ||
-            Math.abs(targetRotateY - currentRotateY) > 0.02 ||
-            Math.abs(currentRotateX) > 0.02 ||
-            Math.abs(currentRotateY) > 0.02 ||
-            isPointerInside
-        ) {
-            rafId = window.requestAnimationFrame(renderTilt);
-        } else {
-            rafId = null;
-        }
-    };
-
-    const startTilt = () => {
-        if (rafId === null) {
-            rafId = window.requestAnimationFrame(renderTilt);
-        }
-    };
-
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        isPointerInside = true;
-        targetRotateX = (y - centerY) / 18;
-        targetRotateY = (centerX - x) / 18;
-
-        startTilt();
-    });
-
-    card.addEventListener('mouseleave', () => {
-        isPointerInside = false;
-        targetRotateX = 0;
-        targetRotateY = 0;
-        startTilt();
-    });
-});
-
-// ==========================================
 // TYPING EFFECT FOR HERO TAGLINE
 // ==========================================
 
@@ -406,6 +340,43 @@ const imageObserver = new IntersectionObserver((entries, observer) => {
 });
 
 images.forEach(img => imageObserver.observe(img));
+
+// ==========================================
+// PROJECT HOVER VIDEO
+// ==========================================
+
+const hoverVideoCards = document.querySelectorAll('.js-hover-video-card');
+
+hoverVideoCards.forEach(card => {
+    const video = card.querySelector('.project-hover-video');
+    if (!video) return;
+
+    let hasLoadedVideo = false;
+
+    const playVideo = () => {
+        if (!hasLoadedVideo) {
+            video.load();
+            hasLoadedVideo = true;
+        }
+
+        card.classList.add('is-video-active');
+        const playAttempt = video.play();
+        if (playAttempt && typeof playAttempt.catch === 'function') {
+            playAttempt.catch(() => {
+                card.classList.remove('is-video-active');
+            });
+        }
+    };
+
+    const stopVideo = () => {
+        video.pause();
+        video.currentTime = 0;
+        card.classList.remove('is-video-active');
+    };
+
+    card.addEventListener('mouseenter', playVideo);
+    card.addEventListener('mouseleave', stopVideo);
+});
 
 // ==========================================
 // INITIALIZE ON PAGE LOAD
