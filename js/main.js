@@ -132,8 +132,8 @@ backToTop.addEventListener('click', () => {
 // ==========================================
 
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -158,6 +158,83 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => {
     observer.observe(section);
 });
+
+// Stagger animation observer
+const staggerObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+});
+
+// Add stagger animations to grids
+const projectsGrid = document.querySelector('.projects-grid');
+const newsGrid = document.querySelector('.news-grid');
+const statsGrid = document.querySelector('.stats-grid');
+const skillsContent = document.querySelector('.skills-content');
+
+if (projectsGrid) {
+    projectsGrid.classList.add('stagger-animation');
+    staggerObserver.observe(projectsGrid);
+}
+
+if (newsGrid) {
+    newsGrid.classList.add('stagger-animation');
+    staggerObserver.observe(newsGrid);
+}
+
+if (statsGrid) {
+    statsGrid.classList.add('stagger-animation');
+    staggerObserver.observe(statsGrid);
+}
+
+if (skillsContent) {
+    skillsContent.classList.add('stagger-animation');
+    staggerObserver.observe(skillsContent);
+}
+
+// Fade in from left/right
+const fadeLeftElements = document.querySelectorAll('.about-image, .contact-info');
+const fadeRightElements = document.querySelectorAll('.about-text, .contact-form-wrapper');
+
+fadeLeftElements.forEach(el => {
+    el.classList.add('fade-in-left');
+    staggerObserver.observe(el);
+});
+
+fadeRightElements.forEach(el => {
+    el.classList.add('fade-in-right');
+    staggerObserver.observe(el);
+});
+
+// Timeline items animation
+const timelineItems = document.querySelectorAll('.timeline-item');
+timelineItems.forEach((item, index) => {
+    item.style.opacity = '0';
+    item.style.transform = 'translateX(-30px)';
+    item.style.transition = `opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) ${index * 0.1}s`;
+});
+
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const items = entry.target.querySelectorAll('.timeline-item');
+            items.forEach(item => {
+                item.style.opacity = '1';
+                item.style.transform = 'translateX(0)';
+            });
+        }
+    });
+}, { threshold: 0.1 });
+
+const timeline = document.querySelector('.timeline');
+if (timeline) {
+    timelineObserver.observe(timeline);
+}
 
 // ==========================================
 // SKILL BARS ANIMATION
@@ -339,15 +416,61 @@ projectCards.forEach(card => {
 // PARALLAX EFFECT
 // ==========================================
 
-window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    const parallaxElements = document.querySelectorAll('.hero-content');
+let ticking = false;
+let lastScrollY = 0;
 
-    parallaxElements.forEach(element => {
-        const speed = 0.5;
-        element.style.transform = `translateY(${scrolled * speed}px)`;
-    });
+window.addEventListener('scroll', () => {
+    lastScrollY = window.scrollY;
+
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            updateParallax();
+            ticking = false;
+        });
+        ticking = true;
+    }
 });
+
+function updateParallax() {
+    const scrolled = lastScrollY;
+
+    // Hero parallax
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent) {
+        const speed = 0.3;
+        heroContent.style.transform = `translateY(${scrolled * speed}px)`;
+    }
+
+    // Section headers parallax
+    const sectionHeaders = document.querySelectorAll('.section-header');
+    sectionHeaders.forEach(header => {
+        const rect = header.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const offset = (window.innerHeight - rect.top) * 0.05;
+            header.style.transform = `translateY(${offset}px)`;
+        }
+    });
+
+    // News cards subtle parallax
+    const newsCards = document.querySelectorAll('.news-card');
+    newsCards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const offset = (window.innerHeight - rect.top) * 0.02 * (index % 2 === 0 ? 1 : -1);
+            card.style.transform = `translateY(${offset}px)`;
+        }
+    });
+
+    // Project cards parallax
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        const rect = card.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const offset = (window.innerHeight - rect.top) * 0.03 * (index % 2 === 0 ? 1 : -1);
+            card.style.transform = `translateY(${offset}px)`;
+        }
+    });
+}
 
 // ==========================================
 // TYPING EFFECT FOR HERO TAGLINE
@@ -514,6 +637,52 @@ const debouncedScroll = debounce(() => {
 window.addEventListener('scroll', debouncedScroll);
 
 // ==========================================
+// SMOOTH SCROLL REVEAL
+// ==========================================
+
+function revealOnScroll() {
+    const reveals = document.querySelectorAll('.section-header, .highlight-item, .testimonial-card');
+
+    reveals.forEach(element => {
+        const windowHeight = window.innerHeight;
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+            element.classList.add('visible');
+        }
+    });
+}
+
+window.addEventListener('scroll', revealOnScroll);
+
+// ==========================================
+// SECTION TRANSITION EFFECTS
+// ==========================================
+
+let currentSection = 0;
+const allSections = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+    allSections.forEach((section, index) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            if (currentSection !== index) {
+                currentSection = index;
+
+                // Add active class to current section
+                allSections.forEach(s => s.classList.remove('active-section'));
+                section.classList.add('active-section');
+            }
+        }
+    });
+});
+
+// ==========================================
 // INITIALIZE ON PAGE LOAD
 // ==========================================
 
@@ -529,6 +698,9 @@ window.addEventListener('load', () => {
 
     // Trigger initial animations
     document.body.classList.add('loaded');
+
+    // Initial reveal
+    revealOnScroll();
 
     console.log('Portfolio website loaded successfully! 🚀');
 });
