@@ -49,6 +49,8 @@ const sections = document.querySelectorAll('section[id]');
 const allSections = document.querySelectorAll('section[id]');
 const backToTop = document.getElementById('back-to-top');
 let currentSection = -1;
+let navTitleText = navSectionTitle ? navSectionTitle.textContent.trim() : '';
+let navTitleSwapTimer = null;
 
 function getNavOffset() {
     return navbar ? navbar.offsetHeight : 80;
@@ -56,6 +58,25 @@ function getNavOffset() {
 
 function syncNavOffset() {
     document.documentElement.style.setProperty('--nav-offset', `${getNavOffset()}px`);
+}
+
+function setNavSectionTitle(nextTitle, instant = false) {
+    if (!navSectionTitle || nextTitle === navTitleText) return;
+
+    navTitleText = nextTitle;
+
+    if (instant) {
+        navSectionTitle.textContent = nextTitle;
+        navSectionTitle.classList.remove('is-switching');
+        return;
+    }
+
+    navSectionTitle.classList.add('is-switching');
+    window.clearTimeout(navTitleSwapTimer);
+    navTitleSwapTimer = window.setTimeout(() => {
+        navSectionTitle.textContent = nextTitle;
+        navSectionTitle.classList.remove('is-switching');
+    }, 160);
 }
 
 function updateScrollUI() {
@@ -91,23 +112,32 @@ function updateScrollUI() {
         }
     });
 
-    const scrollPosition = scrollY + window.innerHeight / 2;
-    allSections.forEach((section, index) => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
+    const titleTrigger = navOffset + 24;
+    let nextSectionIndex = 0;
 
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight && currentSection !== index) {
-            currentSection = index;
-            allSections.forEach(s => s.classList.remove('active-section'));
-            section.classList.add('active-section');
-            navbar.dataset.currentSection = section.id;
-            navbar.classList.toggle('off-home', section.id !== 'home');
-            if (navSectionTitle) {
-                const sectionHeading = section.querySelector('.section-title');
-                navSectionTitle.textContent = sectionHeading ? sectionHeading.textContent.trim() : 'Home';
-            }
+    allSections.forEach((section, index) => {
+        const sectionHeading = section.querySelector('.section-title');
+        const triggerTarget = sectionHeading || section;
+        const triggerTop = triggerTarget.getBoundingClientRect().top;
+
+        if (triggerTop <= titleTrigger) {
+            nextSectionIndex = index;
         }
     });
+
+    if (currentSection !== nextSectionIndex) {
+        currentSection = nextSectionIndex;
+        const activeSection = allSections[currentSection];
+        allSections.forEach(section => section.classList.remove('active-section'));
+        activeSection.classList.add('active-section');
+        navbar.dataset.currentSection = activeSection.id;
+        navbar.classList.toggle('off-home', activeSection.id !== 'home');
+
+        if (navSectionTitle) {
+            const sectionHeading = activeSection.querySelector('.section-title');
+            setNavSectionTitle(sectionHeading ? sectionHeading.textContent.trim() : 'Home', currentSection === 0);
+        }
+    }
 }
 
 // Mobile menu toggle

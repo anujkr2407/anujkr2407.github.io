@@ -415,15 +415,23 @@ section[id] {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    transition: color var(--transition-normal), opacity var(--transition-normal), transform var(--transition-normal);
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.01em;
+    transition: opacity 0.18s ease, transform 0.18s ease;
     opacity: 0;
     pointer-events: none;
     white-space: nowrap;
+}
+
+.nav-section-title.is-switching {
+    opacity: 0;
+    transform: translate(-50%, -10px);
 }
 
 .navbar.off-home .nav-section-title {
