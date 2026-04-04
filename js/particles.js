@@ -8,8 +8,11 @@ class ParticleSystem {
         this.canvas = document.createElement('canvas');
         this.ctx = this.canvas.getContext('2d');
         this.particles = [];
-        this.particleCount = 80;
-        this.mouse = { x: null, y: null, radius: 150 };
+        this.particleCount = 65;
+        this.mobileParticleCount = 25;
+        this.connectionDistance = 210;
+        this.mouse = { x: null, y: null, radius: 50 };
+        this.isHovering = false;
 
         this.init();
     }
@@ -28,20 +31,31 @@ class ParticleSystem {
         this.createParticles();
         this.animate();
 
-        window.addEventListener('resize', () => this.resize());
-        window.addEventListener('mousemove', (e) => this.handleMouseMove(e));
-        window.addEventListener('mouseout', () => this.handleMouseOut());
+        window.addEventListener('resize', () => {
+            this.resize();
+            this.createParticles();
+        });
+        this.container.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+        this.container.addEventListener('mouseenter', () => this.handleMouseEnter());
+        this.container.addEventListener('mouseleave', () => this.handleMouseOut());
     }
 
     resize() {
         this.canvas.width = this.container.offsetWidth;
         this.canvas.height = this.container.offsetHeight;
+        this.safeZone = {
+            left: this.canvas.width * 0.42,
+            right: this.canvas.width * 0.58,
+            top: this.canvas.height * 0.3,
+            bottom: this.canvas.height * 0.58
+        };
     }
 
     createParticles() {
         this.particles = [];
-        for (let i = 0; i < this.particleCount; i++) {
-            this.particles.push(new Particle(this.canvas.width, this.canvas.height));
+        const particleCount = window.innerWidth <= 900 ? this.mobileParticleCount : this.particleCount;
+        for (let i = 0; i < particleCount; i++) {
+            this.particles.push(new Particle(this.canvas.width, this.canvas.height, this.safeZone));
         }
     }
 
@@ -51,9 +65,16 @@ class ParticleSystem {
         this.mouse.y = e.clientY - rect.top;
     }
 
+    handleMouseEnter() {
+        this.isHovering = true;
+        this.mouse.radius = 95;
+    }
+
     handleMouseOut() {
+        this.isHovering = false;
         this.mouse.x = null;
         this.mouse.y = null;
+        this.mouse.radius = 50;
     }
 
     animate() {
@@ -81,12 +102,12 @@ class ParticleSystem {
                 const dy = this.particles[i].y - this.particles[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 120) {
-                    const opacity = 1 - (distance / 120);
+                if (distance < this.connectionDistance) {
+                    const opacity = 1 - (distance / this.connectionDistance);
                     this.ctx.strokeStyle = isDark
-                        ? `rgba(139, 92, 246, ${opacity * 0.3})`
-                        : `rgba(99, 102, 241, ${opacity * 0.2})`;
-                    this.ctx.lineWidth = 1;
+                        ? `rgba(139, 92, 246, ${opacity * 0.36})`
+                        : `rgba(99, 102, 241, ${opacity * 0.24})`;
+                    this.ctx.lineWidth = 1.2;
                     this.ctx.beginPath();
                     this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
                     this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
@@ -98,15 +119,30 @@ class ParticleSystem {
 }
 
 class Particle {
-    constructor(canvasWidth, canvasHeight) {
-        this.x = Math.random() * canvasWidth;
-        this.y = Math.random() * canvasHeight;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
+    constructor(canvasWidth, canvasHeight, safeZone) {
+        const start = Particle.getSidePosition(canvasWidth, canvasHeight, safeZone);
+
+        this.x = start.x;
+        this.y = start.y;
+        this.size = Math.random() * 6 + 3;
+        this.speedX = (Math.random() - 0.5) * 0.32;
+        this.speedY = (Math.random() - 0.5) * 0.32;
         this.baseX = this.x;
         this.baseY = this.y;
         this.density = Math.random() * 30 + 1;
+        this.safeZone = safeZone;
+    }
+
+    static getSidePosition(canvasWidth, canvasHeight, safeZone) {
+        const side = Math.random() < 0.5 ? 'left' : 'right';
+        const margin = 30;
+        const verticalPadding = canvasHeight * 0.08;
+        const x = side === 'left'
+            ? Math.random() * Math.max(safeZone.left - margin, margin)
+            : safeZone.right + Math.random() * Math.max(canvasWidth - safeZone.right - margin, margin);
+        const y = verticalPadding + Math.random() * Math.max(canvasHeight - verticalPadding * 2, 1);
+
+        return { x, y };
     }
 
     update(canvasWidth, canvasHeight, mouse) {
@@ -138,6 +174,16 @@ class Particle {
         this.baseX += this.speedX;
         this.baseY += this.speedY;
 
+        // Keep the central hero text area clearer by nudging particles to the sides.
+        if (
+            this.baseX > this.safeZone.left &&
+            this.baseX < this.safeZone.right &&
+            this.baseY > this.safeZone.top &&
+            this.baseY < this.safeZone.bottom
+        ) {
+            this.baseX += this.baseX < canvasWidth / 2 ? -0.35 : 0.35;
+        }
+
         // Bounce off edges
         if (this.baseX < 0 || this.baseX > canvasWidth) {
             this.speedX *= -1;
@@ -156,16 +202,16 @@ class Particle {
         // Particle glow effect
         const gradient = ctx.createRadialGradient(
             this.x, this.y, 0,
-            this.x, this.y, this.size * 2
+            this.x, this.y, this.size * 3.8
         );
 
         if (isDark) {
-            gradient.addColorStop(0, 'rgba(139, 92, 246, 0.8)');
-            gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.4)');
+            gradient.addColorStop(0, 'rgba(139, 92, 246, 0.9)');
+            gradient.addColorStop(0.45, 'rgba(99, 102, 241, 0.5)');
             gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
         } else {
-            gradient.addColorStop(0, 'rgba(99, 102, 241, 0.8)');
-            gradient.addColorStop(0.5, 'rgba(99, 102, 241, 0.4)');
+            gradient.addColorStop(0, 'rgba(99, 102, 241, 0.9)');
+            gradient.addColorStop(0.45, 'rgba(99, 102, 241, 0.5)');
             gradient.addColorStop(1, 'rgba(99, 102, 241, 0)');
         }
 
@@ -366,17 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const particlesContainer = document.getElementById('particles');
 
     if (particlesContainer) {
-        // Choose one of the animation styles or combine them
-
-        // Option 1: Particle network (recommended)
         new ParticleSystem(particlesContainer);
-
-        // Option 2: Gradient animation
-        new GradientAnimation(particlesContainer);
-
-        // Option 3: Floating shapes
-        // new FloatingShapes(particlesContainer);
-
-        console.log('Particle system initialized! ✨');
     }
 });
