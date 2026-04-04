@@ -697,6 +697,10 @@ section[id] {
     font-family: 'Space Grotesk', sans-serif;
 }
 
+.section-title-small {
+    font-size: 2.2rem;
+}
+
 /* ==========================================
    ABOUT SECTION
    ========================================== */
@@ -938,6 +942,14 @@ section[id] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px;
+}
+
+.projects-subsection {
+    margin-top: 72px;
+}
+
+.side-projects-grid {
+    margin-top: 28px;
 }
 
 .project-card {
