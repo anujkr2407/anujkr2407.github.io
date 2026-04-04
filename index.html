@@ -165,12 +165,39 @@
 
                 <!-- Project 3: ONDC-in-a-Box -->
                 <div class="project-card project-card--ondc js-hover-video-card">
-                    <div class="project-card-flip">
+                    <div class="project-card-flip js-hover-video-card">
                         <div class="project-card-face project-card-face--front">
-                            <button class="project-play-button" type="button" aria-label="Play ONDC demo">
-                                <i class="fas fa-play"></i>
-                            </button>
-                            <div class="project-image project-image--ondc"></div>
+                            <div class="project-image project-image--ondc">
+                                <div class="ondc-thumb">
+                                    <div class="ondc-thumb-search">
+                                        <i class="fas fa-search" aria-hidden="true"></i>
+                                        <span>Search "biryani"</span>
+                                    </div>
+                                    <div class="ondc-thumb-hero">
+                                        <div class="ondc-thumb-hero-copy">
+                                            <span class="ondc-thumb-brand">Domino's</span>
+                                            <strong>Cheesy Deals</strong>
+                                            <p>Cheese burst pizza @ Rs275 + Free delivery</p>
+                                            <span class="ondc-thumb-pill">Order Now</span>
+                                        </div>
+                                    </div>
+                                    <div class="ondc-thumb-carousel">
+                                        <div class="ondc-thumb-offer ondc-thumb-offer--pink">
+                                            <strong>Flat 30% Off</strong>
+                                            <span>Fresh sandwich deals</span>
+                                        </div>
+                                        <div class="ondc-thumb-offer ondc-thumb-offer--violet"></div>
+                                    </div>
+                                    <div class="ondc-thumb-powered">Powered by ONDC network</div>
+                                    <div class="ondc-thumb-section-title">What's on your mind?</div>
+                                    <div class="ondc-thumb-categories">
+                                        <span>Pizza</span>
+                                        <span>Biryani</span>
+                                        <span>Ice Cream</span>
+                                        <span>Fries</span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="project-content">
                                 <h3>ONDC-in-a-Box SaaS Platform</h3>
                                 <p>Multi-tenant SaaS platform enabling Paytm, Ola, and Tata Neu to launch ONDC food delivery in under one week. Drove 50% merchant order growth across integrated partners.</p>
@@ -295,54 +322,88 @@
                     <p class="section-subtitle">Product and utility apps built outside my core logistics and commerce work.</p>
                 </div>
                 <div class="projects-grid side-projects-grid">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/anujkr2407/spend_analyser" target="_blank" rel="noopener" class="project-link" aria-label="View project">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
+                    <div class="side-project-card">
+                        <div class="project-card project-card--spend js-hover-video-card">
+                            <div class="project-card-flip">
+                                <div class="project-card-face project-card-face--front">
+                                    <div class="project-image project-image--spend">
+                                        <div class="spend-thumb">
+                                            <p class="spend-thumb-label">Expense Intelligence</p>
+                                            <h4>Expense Analyzer</h4>
+                                            <div class="spend-thumb-grid">
+                                                <div class="spend-thumb-card">
+                                                    <span>Total Spent</span>
+                                                    <strong>₹2,26,576</strong>
+                                                </div>
+                                                <div class="spend-thumb-card">
+                                                    <span>Transactions</span>
+                                                    <strong>207</strong>
+                                                </div>
+                                                <div class="spend-thumb-card">
+                                                    <span>Top Category</span>
+                                                    <strong>Food & Dining</strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="project-content">
+                                        <h3>Expense Analyzer</h3>
+                                        <p>Privacy-first spend analysis app for credit card statements with editable categories, duplicate detection, and live charts for monthly trends and category distribution.</p>
+                                        <div class="project-tech">
+                                            <span>React</span>
+                                            <span>Node.js</span>
+                                            <span>SQLite</span>
+                                            <span>Recharts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project-card-face project-card-face--back">
+                                    <video class="project-hover-video" muted loop playsinline preload="none" poster="assets/media/spend-analyser.png">
+                                        <source src="assets/media/spend-analyser.mp4" type="video/mp4">
+                                    </video>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3>Expense Analyzer</h3>
-                            <p>Privacy-first spend analysis app for credit card statements with editable categories, duplicate detection, and live charts for monthly trends and category distribution.</p>
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>Node.js</span>
-                                <span>SQLite</span>
-                                <span>Recharts</span>
-                            </div>
+                        <div class="project-cta project-cta--spend">
+                            <a href="https://github.com/anujkr2407/spend_analyser" target="_blank" rel="noopener" class="project-link-text project-link-text--block">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                                View
+                            </a>
                         </div>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-image">
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="https://github.com/anujkr2407/LineApp" target="_blank" rel="noopener" class="project-link" aria-label="View project">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
+                    <div class="side-project-card">
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="https://github.com/anujkr2407/LineApp" target="_blank" rel="noopener" class="project-link" aria-label="View project">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3>QueueFlow / LineApp</h3>
+                                <p>Real-time restaurant queue and discovery app with live queue updates, map-based restaurant discovery, and a React plus Go stack backed by WebSockets.</p>
+                                <div class="project-tech">
+                                    <span>React</span>
+                                    <span>Go</span>
+                                    <span>WebSockets</span>
+                                    <span>Leaflet</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3>QueueFlow / LineApp</h3>
-                            <p>Real-time restaurant queue and discovery app with live queue updates, map-based restaurant discovery, and a React plus Go stack backed by WebSockets.</p>
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>Go</span>
-                                <span>WebSockets</span>
-                                <span>Leaflet</span>
-                            </div>
+                        <div class="project-cta project-cta--lineapp">
+                            <a href="https://github.com/anujkr2407/LineApp" target="_blank" rel="noopener" class="project-link-text project-link-text--block">
+                                <i class="fab fa-github" aria-hidden="true"></i>
+                                View
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Featured in News Section -->
     <section id="news" class="news section">
         <div class="container">
