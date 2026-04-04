@@ -2508,6 +2508,10 @@ section[id] {
     .scroll-indicator {
         display: none;
     }
+
+    .nav-section-title {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2525,14 +2529,6 @@ section[id] {
 
     .nav-logo {
         font-size: 1.5rem;
-    }
-
-    .nav-section-title {
-        font-size: 0.72rem;
-        letter-spacing: 0.04em;
-        max-width: 36vw;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
     .name {
