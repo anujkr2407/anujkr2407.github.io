@@ -175,7 +175,6 @@ const staggerObserver = new IntersectionObserver((entries) => {
 const projectsGrid = document.querySelector('.projects-grid');
 const newsGrid = document.querySelector('.news-grid');
 const statsGrid = document.querySelector('.stats-grid');
-const skillsContent = document.querySelector('.skills-content');
 
 if (projectsGrid) {
     projectsGrid.classList.add('stagger-animation');
@@ -190,11 +189,6 @@ if (newsGrid) {
 if (statsGrid) {
     statsGrid.classList.add('stagger-animation');
     staggerObserver.observe(statsGrid);
-}
-
-if (skillsContent) {
-    skillsContent.classList.add('stagger-animation');
-    staggerObserver.observe(skillsContent);
 }
 
 // Fade in from left/right
@@ -237,7 +231,7 @@ if (timeline) {
 }
 
 // ==========================================
-// SKILL BARS ANIMATION
+// SKILL ICON CARDS ANIMATION
 // ==========================================
 
 let skillsAnimated = false;
@@ -245,15 +239,12 @@ let skillsAnimated = false;
 function animateSkillBars() {
     if (skillsAnimated) return;
 
-    const skillItems = document.querySelectorAll('.skill-item');
+    const skillCards = document.querySelectorAll('.skill-icon-card');
 
-    skillItems.forEach((item, index) => {
+    skillCards.forEach((card, index) => {
         setTimeout(() => {
-            const progressBar = item.querySelector('.skill-progress');
-            const progress = progressBar.getAttribute('data-progress');
-            progressBar.style.width = progress + '%';
-            item.classList.add('animate');
-        }, index * 100);
+            card.classList.add('visible');
+        }, index * 80);
     });
 
     skillsAnimated = true;
@@ -514,7 +505,7 @@ document.addEventListener('mousemove', (e) => {
 });
 
 function animateCursor() {
-    const delay = 0.1;
+    const delay = 0.18;
 
     cursorX += (mouseX - cursorX) * delay;
     cursorY += (mouseY - cursorY) * delay;
